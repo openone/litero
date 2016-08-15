@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>%title%</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+    body{
+        font-family: Roboto, 'Helvetica Neue', Helvetica, sans-serif;
+    }
+    body.dark {
+      background : #252525;
+      color : #EEE;
+
+    }
+    body.sepia{
+      background : #CFC5AD;
+      color : #323232;
+
+    }
+    div{
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    h1 {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    p{
+        -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-font-smoothing: antialiased !important;
+      text-rendering: optimizelegibility !important;
+    }
+
+    p{
+        font-size: 16px;
+        line-height: 1.25em;
+        padding: 0 0 1em 0;
+        text-align: justify;
+    }
+    article p {
+        padding : 0;
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px dotted #AAA;
+    /*    margin: 0 5px;*/
+    }
+    #switch-color-scheme {
+        background: #000;
+        width: auto;
+        float: right;
+        padding: 5px;
+        position: fixed;
+        top: 0px;
+        right : 10px;
+        color: #FFF;
+        border-radius: 50px;
+        opacity: 0.3;
+    }
+
+    .js #switch-color-scheme:hover {
+        opacity : 1;
+        -webkit-transition: opacity 0.5s ease-in-out;
+        -moz-transition: opacity 0.5s ease-in-out;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .js #switch-color-scheme a {
+        text-indent : -100000px;
+        display : block;
+        float: left;
+        text-decoration : none;
+        border : none;
+    }
+
+    .js #switch-color-scheme a:before {
+        content: 'Aa';
+        text-indent: 0;
+        float: left;
+        border: 1px solid #AAA;
+        padding: 7px;
+        display : none;
+        margin : 5px;
+        border-radius:50px;
+    }
+
+    .js #switch-color-scheme a[rel=light]:before {
+        background : #D6D6D6;
+        color : #222;
+    }
+
+    .js #switch-color-scheme a[rel=dark]:before {
+        background : #252525;
+        color : #EEE;
+    }
+
+    .js #switch-color-scheme a[rel=sepia]:before {
+        background : #CFC5AD;
+        color : #323232;
+    }
+
+    .light .light:before,
+    .dark .dark:before,
+    .sepia .sepia:before {
+        display : block !important;
+        border : 1px solid #FFF;
+        -webkit-transition: opacity 0.5s ease-in-out;
+        -moz-transition: opacity 0.5s ease-in-out;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .js #switch-color-scheme:hover a:before {
+        display : block;
+        
+    }
+
+
+    footer {
+        font-size : 0.8em;
+        line-height : 1.6em;
+        font-style : italic;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <h1>%title%</h1>
+        <h3>%author%</h3>
+      </header>
+          %precontent%
+      <article>
+        <p>%content%</p>
+      </article>
+          %postcontent%
+      <footer>
+                  <hr>
+                  %footer% | 
+                  by <a href="http://www.nullrefer.com?https://github.com/openone/litero">Litero - Literotica Story Downloader</a>
+      </footer>
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script> -->
+  <script type="text/javascript">
+        jQuery( '<div id="switch-color-scheme" />' )
+                .append( '<a href="#" class="switch-color light" rel="light">Light</a>' )
+                .append( '<a href="#" class="switch-color dark" rel="dark">Dark</a>' )
+                .append( '<a href="#" class="switch-color sepia" rel="sepia">sepia</a>' )
+                .prependTo('body');
+
+        jQuery( document ).ready(function() {
+                jQuery( 'body' ).addClass( 'js light' );
+                jQuery( '#switch-color-scheme a').click( function( e ) {
+                        e.preventDefault();
+                        jQuery( 'body' )
+                                .removeClass('dark light sepia' )
+                                .addClass( jQuery( this ).attr('rel') );
+                });     
+
+        });
+
+  </script>
+ </body>
+        
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "litero",
+  "version": "0.1.0",
+  "description": "Download stories from Literotica and save them locally as beautifully formatted Text or  HTML web pages for later reading. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "litero_getstory": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openone/litero.git"
+  },
+  "keywords": [
+    "literotica",
+    "literotica.com",
+    "stories",
+    "html",
+    "txt"
+  ],
+  "author": "Open one <openone@gmail.com> (https://github.com/openone)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/openone/litero/issues"
+  },
+  "preferGlobal": true,
+  "homepage": "https://github.com/openone/litero#readme",
+  "dependencies": {
+    "cheerio": "0.20.0",
+    "minimist": "1.2.0",
+    "unique-random-array": "1.0.0"
+  }
+}
